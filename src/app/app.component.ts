@@ -18,11 +18,9 @@ export class AppComponent implements OnInit {
     {v: 'dg', d: 'Datum nicht gelesen'}
   ];
 
-  useless0: any;
+  useless0: any; // just for git stats
   useless1: any;
   useless2: any;
-  useless3: any;
-  useless4: any;
 
   reterror: any;
   themen: any;
