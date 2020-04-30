@@ -18,6 +18,17 @@ export class AppComponent implements OnInit {
     {v: 'dg', d: 'Datum nicht gelesen'}
   ];
 
+  useless0: any;
+  useless1: any;
+  useless2: any;
+  useless3: any;
+  useless4: any;
+  useless5: any;
+  useless6: any;
+  useless7: any;
+  useless8: any;
+  useless9: any;
+
   reterror: any;
   themen: any;
   benutzer: any;
@@ -49,7 +60,7 @@ export class AppComponent implements OnInit {
 
     this.themen = null;
     this.reterror = null;
-    
+
     if (this.user && this.pass) {
 
       this.acs.getThemen(this.user, this.pass).subscribe(d => this.themen = d, err => this.reterror = err);
