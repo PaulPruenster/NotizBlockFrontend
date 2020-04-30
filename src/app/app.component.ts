@@ -19,8 +19,6 @@ export class AppComponent implements OnInit {
   ];
 
   useless0: any; // just for git stats
-  useless1: any;
-  useless2: any;
 
   reterror: any;
   themen: any;
