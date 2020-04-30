@@ -23,11 +23,6 @@ export class AppComponent implements OnInit {
   useless2: any;
   useless3: any;
   useless4: any;
-  useless5: any;
-  useless6: any;
-  useless7: any;
-  useless8: any;
-  useless9: any;
 
   reterror: any;
   themen: any;
