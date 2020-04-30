@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiConnectorService } from './api-connector.service';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -46,26 +46,35 @@ export class AppComponent implements OnInit {
   }
 
   showThemen() {
+
     this.themen = null;
     this.reterror = null;
+    
     if (this.user && this.pass) {
+
       this.acs.getThemen(this.user, this.pass).subscribe(d => this.themen = d, err => this.reterror = err);
       this.acs.getBenutzer(this.user, this.pass).subscribe(d => this.benutzer = d, err => this.reterror = err);
+
       this.getNotizen();
     }
   }
 
   getNotizen() {
     if (this.user && this.pass) {
+
       const sort = this.sortForm.value.sort;
+
       this.acs.getNotizen(this.user, this.pass, sort).subscribe(d => {
+
         this.notizen = [];
+
         d.forEach(e => {
           if (e.benutzer.nummer === this.benutzer.nummer) {
             this.notizen.push(e);
           }
         });
         this.notizen = this.notizen.length === 0 ? null : this.notizen;
+
       }, e => this.notizen = null);
 
     }
@@ -73,6 +82,7 @@ export class AppComponent implements OnInit {
 
   addNotiz() {
     if (this.myForm.valid && this.pass && this.user && this.benutzer && this.themen) {
+
       const send = this.myForm.value;
       send.benutzer = this.benutzer;
 
@@ -101,10 +111,14 @@ export class AppComponent implements OnInit {
   }
 
   deleteNotiz(nummer: number) {
+
     if (this.user && this.pass && nummer) {
+
       this.acs.deleteNotiz(this.user, this.pass, nummer).subscribe(d => {
+
         console.log(d);
         this.getNotizen();
+
       });
     }
   }
