@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
     {v: 'dg', d: 'Datum nicht gelesen'}
   ];
 
+  gitstats;
 
   reterror: any;
   themen: any;
